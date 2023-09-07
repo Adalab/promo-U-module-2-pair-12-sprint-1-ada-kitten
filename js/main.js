@@ -2,19 +2,32 @@
 
 const listElement = document.querySelector(".js-list");
 
+const urlKittenOne = "https://dev.adalab.es/gato-siames.webp";
+const nameKittenOne = "Anastacio";
+const descriptionKittenOne = "Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente."
+const raceKittenOne = "Siamés";
+
+const urlKittenTwo = "https://dev.adalab.es/sphynx-gato.webp";
+const nameKittenTwo = "Fiona";
+const descriptionKittenTwo = "Produce fascinación y curiosidad. Exótico, raro, bello, extraño… hasta con pinta de alienígena han llegado a definir a esta raza gatuna que se caracteriza por la «ausencia» de pelo.";
+const raceKittenTwo = "Sphynx";
+
+const urlKittenThree = "https://dev.adalab.es/maine-coon-cat.webp";
+const nameKittenThree = "Cielo";
+const descriptionKittenThree = "Tienen la cabeza cuadrada y los ojos simétricos, por lo que su bella mirada se ha convertido en una de sus señas de identidad. Sus ojos son grandes y las orejas resultan largas y en punta.";
+const raceKittenThree = "Maine Coon";
+
 const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
-    src="https://dev.adalab.es/gato-siames.webp"
+    src="${urlKittenOne}"
     alt="siames-cat"
   />
-  <h3 class="card_title">Anastacio</h3>
-  <h4 class="card_race">Siamés</h4>
+  <h3 class="card_title">${nameKittenOne.toUpperCase()}</h3>
+  <h4 class="card_race">${raceKittenOne}</h4>
   <p class="card_description">
-    Porte elegante, su patrón de color tan característico y sus ojos
-    de un azul intenso, pero su historia se remonta a Asía al menos
-    hace 500 años, donde tuvo su origen muy posiblemente.
+    ${descriptionKittenOne}
   </p>
 </article>
 </li>`;
@@ -22,31 +35,28 @@ const kittenOne = `<li class="card">
 const kittenTwo = `<li class="card">
   <img
     class="card_img"
-    src="https://dev.adalab.es/sphynx-gato.webp"
+    src="${urlKittenTwo}"
     alt="sphynx-cat"
   />
-  <h3 class="card_title">Fiona</h3>
-  <h4 class="card_race">Sphynx</h4>
+  <h3 class="card_title">${nameKittenTwo.toUpperCase()}</h3>
+  <h4 class="card_race">${raceKittenTwo}</h4>
   <p class="card_description">
-    Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
-    hasta con pinta de alienígena han llegado a definir a esta raza
-    gatuna que se caracteriza por la «ausencia» de pelo.
+    ${descriptionKittenTwo}
   </p>
 </li>`;
 
 const kittenThree = `<li class="card">
 <img
   class="card_img"
-  src="https://dev.adalab.es/maine-coon-cat.webp"
+  src="${urlKittenThree}"
   alt="maine-coon-cat"
 />
-<h3 class="card_title">Cielo</h3>
-<h4 class="card_race">Maine Coon</h4>
+<h3 class="card_title">${nameKittenThree.toUpperCase()}</h3>
+<h4 class="card_race">${raceKittenThree}</h4>
 <p class="card_description">
-  Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
-  bella mirada se ha convertido en una de sus señas de identidad.
-  Sus ojos son grandes y las orejas resultan largas y en punta.
+  ${descriptionKittenThree}
 </p>
 </li>`;
 
 listElement.innerHTML = kittenOne + kittenTwo + kittenThree;
+
