@@ -36,6 +36,7 @@ const raceKittenThree = 'Maine Coon';
 let race = '';
 
 //hacer gatito 2 y 3
+
 if (raceKittenOne === '') {
   race = `Uy que despiste, no sabemos su raza`;
 } else {
