@@ -206,6 +206,11 @@ li {
   display: none;
 }
 
+.error-form {
+  color: red;
+  font-weight: 700;
+}
+
 .button-cancel {
   background-color: grey;
   border: none;

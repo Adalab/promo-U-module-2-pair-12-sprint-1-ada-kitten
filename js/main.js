@@ -35,12 +35,33 @@ const raceKittenThree = 'Maine Coon';
 
 let race = '';
 
-//hacer gatito 2 y 3
+const btnAdd = document.querySelector('.js-btn-add');
+
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMessageError = document.querySelector('.js-label-error');
+
+const btnCancel = document.querySelector('.js-btn-cancel');
+const newForm = document.querySelector('.js-new-form');
+const plusCircle = document.querySelector('.js-plus-circle');
 
 if (raceKittenOne === '') {
   race = `Uy que despiste, no sabemos su raza`;
 } else {
   race = raceKittenOne;
+}
+
+if (raceKittenTwo === '') {
+  race = `Uy que despiste, no sabemos su raza`;
+} else {
+  race = raceKittenTwo;
+}
+
+if (raceKittenThree === '') {
+  race = `Uy que despiste, no sabemos su raza`;
+} else {
+  race = raceKittenThree;
 }
 
 const kittenOne = `<li class="card">
@@ -97,3 +118,31 @@ if (descriptionKittenTwo.includes(descrSearch)) {
 if (descriptionKittenThree.includes(descrSearch)) {
   listElement.innerHTML += kittenThree;
 }
+
+btnAdd.addEventListener('click', (event) => {
+  event.preventDefault();
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    //completa el código
+    labelMessageError.innerHTML = '¡Uy! parece que has olvidado algo';
+    labelMessageError.classList.add('error-form');
+  } else {
+    //completa el código
+  }
+});
+
+btnCancel.addEventListener('click', (event) => {
+  event.preventDefault();
+  inputDesc.value = '';
+  inputName.value = '';
+  inputPhoto.value = '';
+  labelMessageError.innerHTML = '';
+  newForm.classList.add('collapsed');
+})
+
+plusCircle.addEventListener('click', () =>{
+  newForm.classList.remove('collapsed');
+})
