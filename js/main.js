@@ -64,46 +64,44 @@ if (raceKittenThree === '') {
   race = raceKittenThree;
 }
 
-const kittenOne = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src="${urlKittenOne}"
-    alt="siames-cat"
-  />
-  <h3 class="card_title">${nameKittenOne.toUpperCase()}</h3>
-  <h4 class="card_race">${race}</h4>
-  <p class="card_description">
-    ${descriptionKittenOne}
-  </p>
-</article>
-</li>`;
+function renderKitten(url, desc, name, race) {
+  const kitten = `<li class="card">
+  <article>
+    <img
+      class="card_img"
+      src="${url}"
+      alt="siames-cat"
+    />
+    <h3 class="card_title">${name.toUpperCase()}</h3>
+    <h4 class="card_race">${race}</h4>
+    <p class="card_description">
+      ${desc}
+    </p>
+  </article>
+  </li>`;
+  return kitten;
+}
 
-const kittenTwo = `<li class="card">
-  <img
-    class="card_img"
-    src="${urlKittenTwo}"
-    alt="sphynx-cat"
-  />
-  <h3 class="card_title">${nameKittenTwo.toUpperCase()}</h3>
-  <h4 class="card_race">${raceKittenTwo}</h4>
-  <p class="card_description">
-    ${descriptionKittenTwo}
-  </p>
-</li>`;
+const kittenOne = renderKitten(
+  urlKittenOne,
+  descriptionKittenOne,
+  nameKittenOne,
+  race
+);
 
-const kittenThree = `<li class="card">
-<img
-  class="card_img"
-  src="${urlKittenThree}"
-  alt="maine-coon-cat"
-/>
-<h3 class="card_title">${nameKittenThree.toUpperCase()}</h3>
-<h4 class="card_race">${raceKittenThree}</h4>
-<p class="card_description">
-  ${descriptionKittenThree}
-</p>
-</li>`;
+const kittenTwo = renderKitten(
+  urlKittenTwo,
+  descriptionKittenTwo,
+  nameKittenTwo,
+  raceKittenTwo
+);
+
+const kittenThree = renderKitten(
+  urlKittenThree,
+  descriptionKittenThree,
+  nameKittenThree,
+  raceKittenThree
+);
 
 /* listElement.innerHTML = kittenOne + kittenTwo + kittenThree; */
 
@@ -119,7 +117,7 @@ if (descriptionKittenThree.includes(descrSearch)) {
   listElement.innerHTML += kittenThree;
 }
 
-btnAdd.addEventListener('click', (event) => {
+function addNewKitten(event) {
   event.preventDefault();
   const valueDesc = inputDesc.value;
   const valuePhoto = inputPhoto.value;
@@ -132,7 +130,9 @@ btnAdd.addEventListener('click', (event) => {
   } else {
     //completa el código
   }
-});
+}
+
+btnAdd.addEventListener('click', addNewKitten);
 
 btnCancel.addEventListener('click', (event) => {
   event.preventDefault();
@@ -140,9 +140,23 @@ btnCancel.addEventListener('click', (event) => {
   inputName.value = '';
   inputPhoto.value = '';
   labelMessageError.innerHTML = '';
-  newForm.classList.add('collapsed');
-})
+  hideNewCatForm();
+});
 
-plusCircle.addEventListener('click', () =>{
+function showNewCatForm() {
   newForm.classList.remove('collapsed');
-})
+}
+function hideNewCatForm() {
+  newForm.classList.add('collapsed');
+}
+
+function handleClickNewCatForm(event) {
+  event.preventDefault();
+  if (newForm.classList.contains('collapsed')) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm();
+  }
+}
+
+plusCircle.addEventListener('click', handleClickNewCatForm);
