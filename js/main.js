@@ -29,6 +29,7 @@ const msjError = document.querySelector('.js-msj');
   objectKitten.url;
 } */
 
+
 const kittenData_1 = {
   name: 'Anastacio',
   desc: 'Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
@@ -48,26 +49,16 @@ const kittenData_3 = {
   race: 'Maine Coon',
   url: 'https://dev.adalab.es/maine-coon-cat.webp',
 };
+const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
 
 const kittenOne = renderKitten(
-  kittenData_1.url,
-  kittenData_1.desc,
-  kittenData_1.name,
-  kittenData_1.race
+  kittenDataList[0]
 );
-console.log(kittenOne);
 const kittenTwo = renderKitten(
-  kittenData_2.url,
-  kittenData_2.desc,
-  kittenData_2.name,
-  kittenData_2.race
+  kittenDataList[1]
 );
-
 const kittenThree = renderKitten(
-  kittenData_3.url,
-  kittenData_3.desc,
-  kittenData_3.name,
-  kittenData_3.race
+  kittenDataList[2]
 );
 
 //FUNCIONES
@@ -87,7 +78,7 @@ function renderKitten(kittenData) {
       src="${kittenData.url}"
       alt="siames-cat"
     />
-    <h3 class="card_title">${kittenData.toUpperCase()}</h3>
+    <h3 class="card_title">${kittenData.name.toUpperCase()}</h3>
     <h4 class="card_race">${renderRace(kittenData.race)}</h4>
     <p class="card_description">
       ${kittenData.desc}
