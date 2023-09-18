@@ -28,8 +28,6 @@ const msjError = document.querySelector('.js-msj');
   objectKitten.race;
   objectKitten.url;
 } */
-
-
 const kittenData_1 = {
   name: 'Anastacio',
   desc: 'Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.',
@@ -50,16 +48,6 @@ const kittenData_3 = {
   url: 'https://dev.adalab.es/maine-coon-cat.webp',
 };
 const kittenDataList = [kittenData_1, kittenData_2, kittenData_3];
-
-const kittenOne = renderKitten(
-  kittenDataList[0]
-);
-const kittenTwo = renderKitten(
-  kittenDataList[1]
-);
-const kittenThree = renderKitten(
-  kittenDataList[2]
-);
 
 //FUNCIONES
 
@@ -88,6 +76,16 @@ function renderKitten(kittenData) {
 
   return kitten;
 }
+
+function renderKittenList(kittenDataList) {
+  listElement.innerHTML = '';
+
+  for (const kittenItem of kittenDataList) {
+    listElement.innerHTML += renderKitten(kittenItem);
+  }
+}
+
+renderKittenList(kittenDataList);
 
 function addNewKitten(event) {
   event.preventDefault();
@@ -125,21 +123,16 @@ const filterKitten = (event) => {
 };
 
 function addKittens() {
-  const descrSearch = inputSearch.value;
+  let descrSearch = inputSearch.value;
   if (descrSearch) {
     msjError.innerHTML = '';
-    if (kittenData_1.desc.includes(descrSearch)) {
-      listElement.innerHTML += kittenOne;
-    }
-    if (kittenData_2.desc.includes(descrSearch)) {
-      listElement.innerHTML += kittenTwo;
-    }
-    if (kittenData_3.desc.includes(descrSearch)) {
-      listElement.innerHTML += kittenThree;
+    for (const kittenItem of kittenDataList) {
+      if (kittenItem.desc.includes(descrSearch)) {
+        listElement.innerHTML += renderKitten(kittenItem);
+      }
     }
   } else {
     msjError.innerHTML = 'Tienes que escribir algo en el buscador';
-    //pintar msj error
   }
 }
 
